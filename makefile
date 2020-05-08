@@ -16,3 +16,6 @@ superuser:
 
 shell:
 	python manage.py shell
+
+statics:
+	python manage.py collectstatic --noinput
