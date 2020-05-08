@@ -1,0 +1,6 @@
+-r requirements.txt
+
+model_mommy
+coverage
+black
+isort
