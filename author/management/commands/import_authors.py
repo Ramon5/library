@@ -29,7 +29,11 @@ class Command(BaseCommand):
                 for row in reader:
                     authors_list.append(Author(name=row["name"]))
 
-            Author.objects.bulk_create(authors_list, ignore_conflicts=True)
+            break_size = len(authors_list) / 2
+            Author.objects.bulk_create(authors_list, ignore_conflicts=True, batch_size=break_size)
             print("All data have been imported to database")
         except Exception as e:
             logger.error(e)
+
+    def _calculate_better_size(self, sample):
+        pass

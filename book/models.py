@@ -9,5 +9,10 @@ class Book(models.Model):
     publication_year = models.IntegerField("Publication Year")
     authors = models.ManyToManyField(Author)
 
+    class Meta:
+        indexes = [
+            models.Index(fields=["name",]),
+        ]
+
     def __str__(self):
         return self.name
